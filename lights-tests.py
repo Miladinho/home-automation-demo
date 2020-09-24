@@ -23,6 +23,8 @@ class LightTests(unittest.TestCase):
         self.assertTrue(self.home.remove(light.name) == light)
         self.assertTrue(len(self.home.data) == 0)
     
+    def test_remove_non_existing_light_throws(self):
+        self.assertRaises(Exception, self.home.remove, **{"componentName": "test"})
         
 if __name__ == '__main__':
     unittest.main()
