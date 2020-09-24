@@ -15,7 +15,7 @@ class Home:
             return self.data.pop(componentName)
         raise ComponentNotConnectedError(componentName)
         
-    def isConnected(self, componentName) -> bool:
+    def isConnected(self, componentName):
         if componentName in self.data:
             return True
         return False
