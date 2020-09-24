@@ -15,7 +15,7 @@ class LightTests(unittest.TestCase):
     def test_add_existing_light_throws(self):
         light = Light("test")
         self.home.add(light)
-        self.assertRaises(Exception, self.home.add, **{"component": light})
+        self.assertRaises(ComponentAlreadyConnectedError, self.home.add, **{"component": light})
     
     def test_remove_existing_light(self):
         light = Light("test")
@@ -25,7 +25,7 @@ class LightTests(unittest.TestCase):
         self.assertTrue(len(self.home.data) == 0)
     
     def test_remove_non_existing_light_throws(self):
-        self.assertRaises(ComponentDoesNotExistError, self.home.remove, **{"componentName": "test"})
+        self.assertRaises(ComponentNotConnectedError, self.home.remove, **{"componentName": "test"})
         
 if __name__ == '__main__':
     unittest.main()
