@@ -1,3 +1,5 @@
+from errors import *
+
 class Home:
     def __init__(self):
         self.data = {}
@@ -9,7 +11,9 @@ class Home:
             raise Exception("Component Already Connected")
 
     def remove(self, componentName):
-        return self.data.pop(componentName)
+        if self.isConnected(componentName):
+            return self.data.pop(componentName)
+        raise ComponentDoesNotExistError(componentName)
         
     def isConnected(self, componentName) -> bool:
         if componentName in self.data:

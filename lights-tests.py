@@ -1,6 +1,7 @@
 import unittest
 from light import Light
 from home import Home
+from errors import *
 
 class LightTests(unittest.TestCase):
     def setUp(self):
@@ -24,7 +25,7 @@ class LightTests(unittest.TestCase):
         self.assertTrue(len(self.home.data) == 0)
     
     def test_remove_non_existing_light_throws(self):
-        self.assertRaises(Exception, self.home.remove, **{"componentName": "test"})
+        self.assertRaises(ComponentDoesNotExistError, self.home.remove, **{"componentName": "test"})
         
 if __name__ == '__main__':
     unittest.main()
