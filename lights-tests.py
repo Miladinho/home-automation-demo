@@ -26,6 +26,13 @@ class LightTests(unittest.TestCase):
     
     def test_remove_non_existing_light_throws(self):
         self.assertRaises(ComponentNotConnectedError, self.home.remove, **{"componentName": "test"})
+    
+    def test_turn_light_on(self):
+        light = Light("test")
+        self.home.add(light)
+        self.assertEqual(light.status, False)
+        self.home.get("test").status = True
+        self.assertEqual(light.status, True)
         
 if __name__ == '__main__':
     unittest.main()

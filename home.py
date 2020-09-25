@@ -19,3 +19,7 @@ class Home:
         if componentName in self.data:
             return True
         return False
+
+    def get(self, componentName):
+        if self.isConnected(componentName):
+            return self.data[componentName]
