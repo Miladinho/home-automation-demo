@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+
+# PYTHON VIRTUAL ENV: same as the value of `VIR_ENV_DIR` in `scripts/global_var.sh`.
+# IMPORTANT: this value needs to be synced with `VIR_ENV_DIR` in `scripts/global_var.sh` when it's changed.
+.venv
