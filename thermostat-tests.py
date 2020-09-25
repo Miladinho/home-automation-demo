@@ -13,6 +13,7 @@ class ThermostatTests(unittest.TestCase):
     def test_set_temperature(self):
         thermostat = self.home.get("thermostat")
         thermostat.temperature = 75
+        self.home.update(thermostat)
         self.assertEqual(self.home.get("thermostat").temperature, 75)
 
 if __name__ == '__main__':
