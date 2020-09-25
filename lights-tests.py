@@ -33,6 +33,13 @@ class LightTests(unittest.TestCase):
         self.assertEqual(light.status, False)
         self.home.get("test").status = True
         self.assertEqual(light.status, True)
+    
+    def test_turn_light_off(self):
+        light = Light("test", status=True)
+        self.home.add(light)
+        self.assertEqual(light.status, True)
+        self.home.get("test").status = False
+        self.assertEqual(light.status, False)
         
 if __name__ == '__main__':
     unittest.main()
