@@ -1,4 +1,4 @@
 class Light:
-    def __init__(self, name, status=False):
+    def __init__(self, name, status=0):
         self.name = name
         self.status = status

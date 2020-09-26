@@ -1,20 +1,24 @@
 import unittest
+from unittest.mock import Mock, MagicMock
 from home import Home
 from thermostat import Thermostat
 
 class ThermostatTests(unittest.TestCase):
     def setUp(self):
-        self.home = Home()
-        self.home.add(Thermostat("thermostat", temp=68))
+        self.home = Home(Mock())
     
     def test_read_temperature(self):
-        self.assertEqual(self.home.get("thermostat").temperature, 68)
+        # Here a quick stub to replace a query method is more convenient
+        self.home.repository.get = MagicMock(return_value=Thermostat("Thermostat",temp=68))
+        self.assertEqual(self.home.getTemperature(), 68)
     
     def test_set_temperature(self):
-        thermostat = self.home.get("thermostat")
-        thermostat.temperature = 75
-        self.home.update(thermostat)
-        self.assertEqual(self.home.get("thermostat").temperature, 75)
+        class RepositorySetTempMock():
+            def update(self, component):
+                self.temp = component.temperature
+        self.home = Home(RepositorySetTempMock())
+        self.home.setTemperature(75)
+        self.assertEqual(self.home.repository.temp, 75)
 
 if __name__ == '__main__':
     unittest.main()
