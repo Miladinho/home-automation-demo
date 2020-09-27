@@ -20,5 +20,9 @@ class ThermostatTests(unittest.TestCase):
         self.home.setTemperature(75)
         self.assertEqual(self.home.repository.temp, 75)
 
+    def test_get_thermostat(self):
+        thermo = Thermostat("Thermostat",temp=68)
+        self.home.repository.get = MagicMock(return_value=thermo)
+        self.assertEqual(self.home.getThermostat(), thermo)
 if __name__ == '__main__':
     unittest.main()

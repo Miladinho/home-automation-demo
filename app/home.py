@@ -36,3 +36,9 @@ class Home:
             self.repository.update(Light(name,value))
         else:
             raise ComponentNotConnectedError(name)
+    
+    def getLights(self):
+        return self.repository.getLights()
+
+    def getThermostat(self):
+        return self.repository.get("Thermostat")

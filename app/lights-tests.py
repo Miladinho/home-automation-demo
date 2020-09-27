@@ -45,6 +45,12 @@ class LightTests(unittest.TestCase):
 
     def test_turn_set_light_status_throws_when_light_not_connected(self):
         self.assertRaises(ComponentNotConnectedError, self.home.setLightStatus,**{"name": "bad light", "value": 1})
+    
+    def test_get_all_lights(self):
+        lightsArray = self.home.getLights()
+        self.assertEqual(len(lightsArray), 1)
+        self.assertEqual(lightsArray[0].name, "test")
+        self.assertEqual(lightsArray[0].status, 0)
         
 if __name__ == '__main__':
     unittest.main()

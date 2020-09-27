@@ -18,3 +18,10 @@ class InMemoryRepository():
         if componentName in self.data:
             return True
         return False
+
+    def getLights(self):
+        lights = []
+        for component in self.data.values():
+            if component.type == "Light":
+                lights.append(component)
+        return lights
