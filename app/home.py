@@ -6,6 +6,10 @@ class Home:
     def __init__(self, repository):
         self.repository = repository
 
+    def initBaseComponents(self):
+        self.repository.add(Thermostat("Thermostat",temp=68))
+        self.repository.add(Light("Living Room Light"))
+        
     def isConnected(self, componentName):
         return self.repository.isConnected(componentName)
 
