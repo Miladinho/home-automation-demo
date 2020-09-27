@@ -66,8 +66,3 @@ def updateLight(name):
 def jsonResponse(payload, status=200):
     payload["statusCode"] = status
     return (json.dumps(payload), status, {"Content-Type": "application/json"})
-
-
-
-
-
