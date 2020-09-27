@@ -30,11 +30,9 @@ def getAllComponents():
 
 @app.route("/api/components/thermostat", methods=["PUT"])
 def updateThermostat():
-    if request.method == "PUT":
-        body = json.loads(request.data)
-        home.setTemperature(int(body["value"]))
-        return jsonResponse({"meesage": "Successfully updated thermostat"})
-    return jsonResponse({"message": "Method "+request.method+" not supported."}, 405)
+    body = json.loads(request.data)
+    home.setTemperature(int(body["value"]))
+    return jsonResponse({"meesage": "Successfully updated thermostat"})
 
 @app.route("/api/components/light/<string:name>", methods=["DELETE", "PUT", "POST"])
 def updateLight(name):
