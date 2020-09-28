@@ -8,7 +8,6 @@ class ThermostatTests(unittest.TestCase):
         self.home = Home(Mock())
     
     def test_read_temperature(self):
-        # Here a quick stub to replace a query method is more convenient
         self.home.repository.get = MagicMock(return_value=Thermostat("Thermostat",temp=68))
         self.assertEqual(self.home.getTemperature(), 68)
     
@@ -24,5 +23,6 @@ class ThermostatTests(unittest.TestCase):
         thermo = Thermostat("Thermostat",temp=68)
         self.home.repository.get = MagicMock(return_value=thermo)
         self.assertEqual(self.home.getThermostat(), thermo)
+
 if __name__ == '__main__':
     unittest.main()
