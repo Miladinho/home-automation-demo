@@ -1,14 +1,18 @@
 from home import Home
 from inMemoryRepository import InMemoryRepository
+from homeDataFileService import HomeDataFileService
 import json
 
 from flask_cors import CORS
 from flask import Flask, request, make_response
 app = Flask(__name__)
 
-repo = InMemoryRepository()
+
+fileService = HomeDataFileService()
+repo = InMemoryRepository(fileService, "data/data.json")
+repo.initFromDataFile()
 home = Home(repo)
-home.initBaseComponents()
+#home.initBaseComponents()
 
 @app.after_request
 def after_request(response):
