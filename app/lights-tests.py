@@ -2,19 +2,11 @@ import unittest
 from light import Light
 from home import Home
 from errors import *
-from inMemoryRepository import InMemoryRepository
+from fakeRepository import FakeRepository
 
 class LightTests(unittest.TestCase):
     def setUp(self):
-        '''
-            Given current specs, the JSON file of device data is loaded into memory
-            Therefore, instead of creating a mocks and stubs for testing,
-            we can just develop the in-momory implementation of the data repository
-            as a testing fake object. The benefit is because it is simple CRUD code
-            we create the actual repository implementation. A side-effect of this is
-            that the test code here will possibly be brittle.
-        '''
-        self.home = Home(InMemoryRepository())
+        self.home = Home(FakeRepository())
         self.home.addLight("test")
 
     def test_add_new_light(self):
