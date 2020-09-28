@@ -8,7 +8,7 @@ source "$PYTHON_VIR_ENV_DIR/bin/activate"
 
 # Run tests
 echo "Running all tests..."
-python3 -m unittest *-tests.py
+python3 -m unittest tests/*-tests.py
 
 # Deactivate python virtual environment when test is finished
 deactivate
