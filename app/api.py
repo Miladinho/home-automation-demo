@@ -45,12 +45,10 @@ def addLight():
         home.addLight(body["name"])
         return jsonResponse({"message": "Successfully added a new light light " + body["name"]})
     except Exception as err:
-        print(err.args[0])
         return jsonResponse({"message": str(err.args[0])}, 404)
 
 @app.route("/api/components/light/<string:name>", methods=["DELETE", "PUT"])
 def updateLight(name):
-    print(request)
     if request.method == "PUT":
         try:
             body = json.loads(request.data)
@@ -64,15 +62,6 @@ def updateLight(name):
             return jsonResponse({"message": "Successfully updated light " + name})
         except Exception as err:
             return jsonResponse({"message": str(err.args[0])}, 400)
-    elif request.method == "POST":
-        try:
-            body = json.loads(request.data)
-            home.addLight(body["name"])
-            return jsonResponse({"message": "Successfully added a new light light " + body["name"]})
-        except Exception as err:
-            print(err.args[0])
-            return jsonResponse({"message": str(err.args[0])}, 404)
-    return jsonResponse({"message": "Method "+request.method+" not supported."}, 405)
 
 def jsonResponse(payload, status=200):
     payload["statusCode"] = status
