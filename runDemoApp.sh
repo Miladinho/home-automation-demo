@@ -7,7 +7,6 @@ pgrep flash
 
 cd ../web
 ./setup.sh
-npm install
 npm run develop
 
 
