@@ -3,7 +3,6 @@
 cd app
 ./setup.sh
 ./runAPI.sh &
-pgrep flash
 
 cd ../web
 ./setup.sh
