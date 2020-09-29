@@ -1,3 +1,16 @@
+# Setup and Run
+
+1. Run `./setup.sh` to:
+    - Install dependencies `npm install`
+    - setup development environment variables file `.env.development`
+2. Run `npm run develop`
+    - Run dev server
+## Notes
+Must specify environment variable `GATSBY_API_URL` in .env.development file and .env.production file(if chosing to run in production mode "gatsby serve" command) in order to properly connect to the api server.
+
+`package.json` file is modified to run gtasby commands locally instead of relying on a global `gatsby-cli` installation.
+
+# Auto-Generated Gatsby Docs
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
