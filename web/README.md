@@ -2,9 +2,14 @@
 
 1. Run `./setup.sh` to:
     - Install dependencies `npm install`
-    - setup development environment variables file `.env.development`
-2. Run `npm run develop`
-    - Run dev server
+    - setup environment variables files `.env.development`and `.env.production`
+
+2. Run `npm run build` to compile the app
+
+3. Run `npm run serve`
+    - Run production build
+    - `npm run develop` for dev build
+
 ## Notes
 Must specify environment variable `GATSBY_API_URL` in .env.development file and .env.production file(if chosing to run in production mode "gatsby serve" command) in order to properly connect to the api server.
 

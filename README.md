@@ -3,7 +3,7 @@
 ## TL;DR 😅
 
 1. Run `./runDemoApp`
-2. Visit `localhost:8000` on your internet browser
+2. Visit `localhost:9000` on your internet browser
 3. View logs at `app/home.log`
 4. View live changes to home data in `app/data/data.json`
 5. Run `ctrl-C` to exit script (cleans up processes started in background i.e. app/api.py)
