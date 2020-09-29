@@ -8,7 +8,7 @@ pgrep flash
 cd ../web
 ./setup.sh
 npm run build
-npm run serve
+npm run develop
 
 
 # trap ctrl-c and call ctrl_c()
