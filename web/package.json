@@ -29,12 +29,12 @@
   ],
   "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "node ./node_modules/gatsby/dist/bin/gatsby build",
+    "develop": "node ./node_modules/gatsby/dist/bin/gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
+    "serve": "node ./node_modules/gatsby/dist/bin/gatsby serve",
+    "clean": "node ./node_modules/gatsby/dist/bin/gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
