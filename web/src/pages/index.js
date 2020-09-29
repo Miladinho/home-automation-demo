@@ -25,7 +25,7 @@ export default class IndexPage extends React.Component {
   }
 
   addLight() {
-    fetch(process.env.GATSBY_API_URL+"/components/light/"+this.state.inputValue, {
+    fetch(process.env.GATSBY_API_URL+"/components/light/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

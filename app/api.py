@@ -38,7 +38,17 @@ def updateThermostat():
     home.setTemperature(int(body["value"]))
     return jsonResponse({"meesage": "Successfully updated thermostat"})
 
-@app.route("/api/components/light/<string:name>", methods=["DELETE", "PUT", "POST"])
+@app.route("/api/components/light/", methods=["POST"])
+def addLight():
+    try:
+        body = json.loads(request.data)
+        home.addLight(body["name"])
+        return jsonResponse({"message": "Successfully added a new light light " + body["name"]})
+    except Exception as err:
+        print(err.args[0])
+        return jsonResponse({"message": str(err.args[0])}, 404)
+
+@app.route("/api/components/light/<string:name>", methods=["DELETE", "PUT"])
 def updateLight(name):
     print(request)
     if request.method == "PUT":
@@ -56,7 +66,6 @@ def updateLight(name):
             return jsonResponse({"message": str(err.args[0])}, 400)
     elif request.method == "POST":
         try:
-            print(name)
             body = json.loads(request.data)
             home.addLight(body["name"])
             return jsonResponse({"message": "Successfully added a new light light " + body["name"]})
